@@ -174,25 +174,125 @@ This allows easy comparison between model predictions and annotated masks.
 
 ---
 
-## Hardware Used
+## Training the Model
 
-* GPU: NVIDIA RTX 3050 Laptop GPU
-* CUDA Enabled Training
-* PyTorch 2.11.0 + CUDA 12.8
+### Dataset Structure
+
+Organize the dataset in the following format:
+
+```text
+dataset/
+
+├── train/
+│   ├── images/
+│   └── masks/
+│
+├── valid/
+│   ├── images/
+│   └── masks/
+│
+└── test/
+    ├── images/
+    └── masks/
+```
+
+Where:
+
+* Images are RGB railway drone images.
+* Masks are binary segmentation masks.
+* White pixels (255) represent railway tracks.
+* Black pixels (0) represent background.
 
 ---
 
-## Future Enhancements
+### Configure Training Parameters
 
-Planned next steps:
+Update values inside:
 
-* Additional dataset expansion
-* Model fine-tuning
-* Skeletonization
-* Railway centerline extraction
-* Railway geometry analysis
-* Discontinuity and defect detection
-* Web-based inference dashboard
+```text
+config.py
+```
+
+Example:
+
+```python
+IMAGE_SIZE = 512
+BATCH_SIZE = 2
+NUM_EPOCHS = 50
+LEARNING_RATE = 1e-4
+```
+
+---
+
+### Start Training
+
+Run:
+
+```bash
+python train.py
+```
+
+The training pipeline will:
+
+1. Load images and masks.
+2. Apply preprocessing and augmentation.
+3. Train the U-Net + ResNet34 segmentation model.
+4. Validate performance after each epoch.
+5. Save the best-performing model checkpoint.
+
+---
+
+### Checkpoint Location
+
+The best model is automatically saved to:
+
+```text
+outputs/checkpoints/
+```
+
+Example:
+
+```text
+outputs/checkpoints/railway_unet_resnet34.pth
+```
+
+---
+
+### Training Outputs
+
+During training the following metrics are displayed:
+
+* Training Loss
+* Validation Loss
+* Dice Score
+* IoU Score
+
+Example:
+
+```text
+Epoch      : 50
+Train Loss : 0.0705
+Val Loss   : 0.1385
+Dice Score : 0.9033
+IoU Score  : 0.8798
+```
+
+---
+
+### Custom Dataset Training
+
+To train on a new railway dataset:
+
+1. Replace images and masks inside the dataset folders.
+2. Maintain the same folder structure.
+3. Update paths in `config.py` if required.
+4. Run:
+
+```bash
+python train.py
+```
+
+The model will automatically learn from the new dataset and generate a new checkpoint.
 
 ---
 

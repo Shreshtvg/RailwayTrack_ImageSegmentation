@@ -1,0 +1,85 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Virtual Environments
+# =========================
+venv/
+venv1/
+env/
+.venv/
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Python Build
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Model Checkpoints
+# =========================
+*.pth
+*.pt
+*.ckpt
+
+# =========================
+# Outputs
+# =========================
+
+predictions/
+results/
+
+# =========================
+# Mask Generation Project
+# =========================
+railway_mask_generator.pth
+train_dataset.py
+cvat_to_masks.py
+dataset.py
+model.py
+predict_masks.py
+annotations.xml
+annotations1.xml
+
+# =========================
+# Dataset (optional)
+# =========================
+
+# Uncomment if dataset should not be pushed
+
+# dataset/
+# annotated_images/
+# generated_masks/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Cache
+# =========================
+.cache/
+.pytest_cache/

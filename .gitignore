@@ -43,6 +43,7 @@ dist/
 *.pth
 *.pt
 *.ckpt
+!outputs/checkpoints/railway_unet_resnet34_best.pth
 
 # =========================
 # Outputs
@@ -76,7 +77,7 @@ annotations1.xml
 # =========================
 # Jupyter
 # =========================
-.ipynb_checkpoints/
+# .ipynb_checkpoints/
 
 # =========================
 # Cache

@@ -137,7 +137,6 @@ def dice_score(preds, masks):
         + 1e-8
     )
 
-
 def iou_score(preds, masks):
 
     preds = torch.sigmoid(preds)
@@ -196,7 +195,7 @@ def main():
         encoder_name="resnet34",
         encoder_weights="imagenet",
         in_channels=3,
-        classes=1
+        classes=1   
     )
 
     model.to(DEVICE)
